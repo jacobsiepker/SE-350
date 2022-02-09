@@ -4,7 +4,7 @@ public class Airline {
     private String name;
 
     public Airline(String name) throws Exception {
-        if (name.length() >= 8 || name.length() == 0) {
+        if (name == null || name.length() >= 8 || name.length() == 0) {
             throw new Exception("Airline name must be less than 8 characters and non-null.");
         }
         else {

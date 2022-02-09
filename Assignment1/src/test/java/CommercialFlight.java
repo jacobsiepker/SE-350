@@ -1,14 +1,19 @@
 import java.util.Date;
 import java.util.Objects;
 
-public class Flight {
+public class CommercialFlight {
     private Airline airline;
     private Airport departAirport;
     private Airport arriveAirport;
     private String flightNumber;
     private Date departTime;
 
-    public Flight(Airline airline, Airport departAirport, Airport arriveAirport, Date departTime) {
+    public CommercialFlight(Airline airline, Airport departAirport, Airport arriveAirport, Date departTime) throws Exception {
+
+        if (airline == null || departAirport == null || arriveAirport == null || departTime == null){
+            throw new Exception("Flight params must be non-null instances of airline, airport, and date.");
+        }
+
         this.airline = airline;
         this.departAirport = departAirport;
         this.arriveAirport = arriveAirport;
@@ -37,8 +42,11 @@ public class Flight {
         return departTime;
     }
 
-    public void setDepartTime(Date departTime) {
-        this.departTime = departTime;
+    public void setDepartTime(Date departTime) throws Exception {
+        if (departTime != null) {
+            this.departTime = departTime;
+        }
+        else{throw new Exception("New departure time must be non-null.");}
     }
 
     @Override
@@ -50,8 +58,8 @@ public class Flight {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Flight)) return false;
-        Flight flight = (Flight) o;
+        if (!(o instanceof CommercialFlight)) return false;
+        CommercialFlight flight = (CommercialFlight) o;
         return airline.equals(flight.airline) && departAirport.equals(flight.departAirport) && arriveAirport.equals(flight.arriveAirport)
                 && flightNumber.equals(flight.flightNumber) && departTime.equals(flight.departTime);
     }

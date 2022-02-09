@@ -4,6 +4,10 @@ public class Airport {
     private String name;
 
     public Airport(String name) throws Exception {
+        if (name == null){
+            throw new Exception ("Airport must be non-null");
+        }
+
         if (name.length() != 3) {
             throw new Exception("Airport name must be 3 letters.");
         }

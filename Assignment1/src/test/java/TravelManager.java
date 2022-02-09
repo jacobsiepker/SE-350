@@ -1,13 +1,17 @@
 import java.util.Date;
+import java.util.Scanner;
 
 public class TravelManager {
     public static void main(String[] args) throws Exception {
-        Airline airline = new Airline("United");
-        Airport airport = new Airport("LAX");
-        Airport airport2 = new Airport("ORD");
-        Date departure = new Date(2022, 1, 8, 14, 35);
-        Flight flight = new Flight(airline, airport, airport2, departure);
 
-        System.out.println(flight);
+        for (int i = 0; i < 5; i++){
+            FlightManager.getInstance().createFlight();
+        }
+        System.out.println(FlightManager.getInstance());
+        System.out.println("\n\n");
+        Scanner input = new Scanner(System.in);
+        System.out.print("Search by Flight Number: ");
+        String number = input.nextLine();
+        System.out.println(FlightManager.getInstance().getFlightByNumber( Integer.parseInt(number) ));
     }
 }
