@@ -16,6 +16,11 @@ public final class FlightManager {
     private FlightManager(){
     }
 
+    //public void importFlights(){
+     //   CommercialFlight flight = objectMapper.readValue(new File("src/files/json_flights.json"), CommercialFlight.class);
+      //  flightList.add(flight);
+    //}
+
     public void createFlight(){
         //create and add flight to flight list
 
